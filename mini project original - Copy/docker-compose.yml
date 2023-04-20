@@ -25,9 +25,9 @@ services:
       - ./data:/var/lib/mysql
     environment:
       MYSQL_ROOT_HOST: host.docker.internal
-      MYSQL_ROOT_PASSWORD: Shrikant@11
+      MYSQL_ROOT_PASSWORD: <password>
       MYSQL_ROOT_USER: root
-      MYSQL_PASSWORD: Shrikant@11
+      MYSQL_PASSWORD: <password>
       MYSQL_DATABASE: sys
     ports:
       - 3307:3306
