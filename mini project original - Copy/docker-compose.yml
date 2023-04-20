@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  doctors:
+    image: doctors
+    build:
+      context: ./go-doctor
+      dockerfile: Dockerfile
+    ports:
+      - 2010:2010
+  patients:
+    image: patients
+    build:
+      context: ./go-patient
+      dockerfile: Dockerfile
+    depends_on:
+      - doctors
+    ports:
+      - 3010:3010
+  database:
+    image: database
+    build:
+      context: ./go-doctor/pkg/config
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_HOST: host.docker.internal
+      MYSQL_ROOT_PASSWORD: Shrikant@11
+      MYSQL_ROOT_USER: root
+      MYSQL_PASSWORD: Shrikant@11
+      MYSQL_DATABASE: sys
+    ports:
+      - 3307:3306
+    
+      
+    

@@ -1,0 +1,4 @@
+
+-> taskmanager processes(mysql process kill then create docker images and compose)
+-> then stop container
+-> run(services.msc)->(mysql80 start)
